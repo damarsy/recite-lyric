@@ -1,2 +1,9 @@
 # ignored folders / files
 .idea/
+target/
+/target
+*/target
+*/target/
+*/target/*
+*/target/**
+/target/

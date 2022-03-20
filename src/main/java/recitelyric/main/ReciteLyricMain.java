@@ -51,11 +51,11 @@ public class ReciteLyricMain {
         System.out.println();
         System.out.println("Subject only random reciter");
         // subject only random reciter with verse and subject param
-        JackHouseLyric lyricReciter7 = new JackHouseLyric(new RandomDecoratorReciter(DisplayVerseMethod.FULL_VERSE, prefix, versesAndSubjects));
+        JackHouseLyric lyricReciter7 = new JackHouseLyric(new RandomDecoratorReciter(DisplayVerseMethod.SUBJECT_VERSE, prefix, versesAndSubjects));
         lyricReciter7.recite(12);
 
         // subject only random reciter with verse only param
-        JackHouseLyric lyricReciter8 = new JackHouseLyric(new RandomDecoratorReciter(DisplayVerseMethod.FULL_VERSE, prefix, versesOnly));
+        JackHouseLyric lyricReciter8 = new JackHouseLyric(new RandomDecoratorReciter(DisplayVerseMethod.SUBJECT_VERSE, prefix, versesOnly));
         lyricReciter8.recite(12);
     }
 
