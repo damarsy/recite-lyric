@@ -9,6 +9,8 @@ import static recitelyric.constant.Constant.COMMA_DELIMITER;
 import static recitelyric.constant.Constant.SPACE_DELIMITER;
 
 public class DisplayVerseSubjectOnly implements DisplayVerseBehaviour {
+    public DisplayVerseSubjectOnly() {}
+
     @Override
     public String getVerse(Pair verse, boolean firstVerse) {
         String subjectVerse = extractSubject(verse);

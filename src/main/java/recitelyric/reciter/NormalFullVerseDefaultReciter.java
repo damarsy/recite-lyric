@@ -14,21 +14,21 @@ import java.util.List;
 public class NormalFullVerseDefaultReciter implements LyricReciter {
     private String prefix;
     private List<Pair> verses;
-    private DisplayVerseBehaviour fullVerseDisplay;
-    private GenerateLyricBehaviour defaultLyricGenerator;
-    private ReciteSequenceBehaviour normalSequenceReciter;
+    private final DisplayVerseBehaviour fullVerseDisplay;
+    private final GenerateLyricBehaviour defaultLyricGenerator;
+    private final ReciteSequenceBehaviour normalSequenceReciter;
 
     public NormalFullVerseDefaultReciter(String prefix, List<Pair> verses) {
         this.prefix = prefix;
         this.verses = new ArrayList<>(verses);
         this.fullVerseDisplay = new DisplayVerseFull();
-        this.defaultLyricGenerator = new GenerateLyricDefault();
-        this.normalSequenceReciter = new ReciteSequenceNormal();
+        this.defaultLyricGenerator = new GenerateLyricDefault(fullVerseDisplay);
+        this.normalSequenceReciter = new ReciteSequenceNormal(defaultLyricGenerator);
 
     }
 
     @Override
     public void recite(int count) throws Exception {
-        System.out.println(normalSequenceReciter.constructLyric(defaultLyricGenerator, fullVerseDisplay, prefix, verses, count));;
+        System.out.println(normalSequenceReciter.constructLyric(prefix, verses, count));;
     }
 }

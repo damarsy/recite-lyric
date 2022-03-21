@@ -5,6 +5,12 @@ import recitelyric.reciter.display.DisplayVerseBehaviour;
 
 import java.util.List;
 
-public interface GenerateLyricBehaviour {
-    String getFullLyric(DisplayVerseBehaviour displayBehaviour, String prefix, List<Pair> verses, int count) throws Exception;
+public abstract class GenerateLyricBehaviour {
+    final DisplayVerseBehaviour displayBehaviour;
+
+    public GenerateLyricBehaviour(DisplayVerseBehaviour displayBehaviour) {
+        this.displayBehaviour = displayBehaviour;
+    }
+
+    public abstract String getFullLyric(String prefix, List<Pair> verses, int count) throws Exception;
 }

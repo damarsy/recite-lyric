@@ -14,21 +14,21 @@ import java.util.List;
 public class RandomFullVerseDefaultReciter implements LyricReciter {
     private String prefix;
     private List<Pair> verses;
-    private DisplayVerseBehaviour fullVerseDisplay;
-    private GenerateLyricBehaviour defaultLyricGenerator;
-    private ReciteSequenceBehaviour randomSequenceReciter;
+    private final DisplayVerseBehaviour fullVerseDisplay;
+    private final GenerateLyricBehaviour defaultLyricGenerator;
+    private final ReciteSequenceBehaviour randomSequenceReciter;
 
     public RandomFullVerseDefaultReciter(String prefix, List<Pair> verses) {
         this.prefix = prefix;
         this.verses = new ArrayList<>(verses);
         this.fullVerseDisplay = new DisplayVerseFull();
-        this.defaultLyricGenerator = new GenerateLyricDefault();
-        this.randomSequenceReciter = new ReciteSequenceRandom();
+        this.defaultLyricGenerator = new GenerateLyricDefault(fullVerseDisplay);
+        this.randomSequenceReciter = new ReciteSequenceRandom(defaultLyricGenerator);
 
     }
 
     @Override
     public void recite(int count) throws Exception {
-        System.out.println(randomSequenceReciter.constructLyric(defaultLyricGenerator, fullVerseDisplay, prefix, verses, count));;
+        System.out.println(randomSequenceReciter.constructLyric(prefix, verses, count));;
     }
 }

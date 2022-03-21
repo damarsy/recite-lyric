@@ -3,7 +3,7 @@ package recitelyric.main;
 import recitelyric.reciter.LyricReciter;
 
 public class JackHouseLyric {
-    private LyricReciter lyricReciter;
+    private final LyricReciter lyricReciter;
 
     public JackHouseLyric(LyricReciter lyricReciter) {
         this.lyricReciter = lyricReciter;

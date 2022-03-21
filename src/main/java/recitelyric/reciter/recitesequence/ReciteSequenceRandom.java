@@ -7,13 +7,15 @@ import recitelyric.reciter.display.DisplayVerseBehaviour;
 import java.util.Collections;
 import java.util.List;
 
-public class ReciteSequenceRandom implements ReciteSequenceBehaviour {
+public class ReciteSequenceRandom extends ReciteSequenceBehaviour {
+    public ReciteSequenceRandom(GenerateLyricBehaviour generateLyric) {
+        super(generateLyric);
+    }
+
     @Override
-    public String constructLyric(
-            GenerateLyricBehaviour generateLyric, DisplayVerseBehaviour displayVerse, String prefix, List<Pair> verses, int count)
-            throws Exception
+    public String constructLyric(String prefix, List<Pair> verses, int count) throws Exception
     {
         Collections.shuffle(verses);
-        return generateLyric.getFullLyric(displayVerse, prefix, verses, count);
+        return generateLyric.getFullLyric(prefix, verses, count);
     }
 }
