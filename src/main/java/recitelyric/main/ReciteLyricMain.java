@@ -10,53 +10,53 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static recitelyric.constant.Constant.INPUT_PREFIX;
+import static recitelyric.constant.Constant.INPUT_VERSES_AND_SUBJECTS;
+import static recitelyric.constant.Constant.INPUT_VERSES_ONLY;
+
 public class ReciteLyricMain {
     public static void main(String[] args) throws Exception {
-        String prefix = "This is";
-        List<Pair> versesAndSubjects = prepareDataVerseAndSubject();
-        List<Pair> versesOnly = prepareDataVerseOnly();
-
-        reciteLyrics(prefix, versesAndSubjects, versesOnly);
+        reciteLyrics();
     }
 
-    private static void reciteLyrics(String prefix, List<Pair> versesAndSubjects, List<Pair> versesOnly) throws Exception {
+    private static void reciteLyrics() throws Exception {
         // full verse normal reciter with verse and subject param
         System.out.println("Full verse normal reciter");
-        JackHouseLyric lyricReciter = new JackHouseLyric(new NormalFullVerseDefaultReciter(prefix, versesAndSubjects));
+        JackHouseLyric lyricReciter = new JackHouseLyric(new NormalFullVerseDefaultReciter(INPUT_PREFIX, INPUT_VERSES_AND_SUBJECTS));
         lyricReciter.recite(12);
 
         // full verse normal reciter with verse only param
-        JackHouseLyric lyricReciter2 = new JackHouseLyric(new NormalFullVerseDefaultReciter(prefix, versesOnly));
+        JackHouseLyric lyricReciter2 = new JackHouseLyric(new NormalFullVerseDefaultReciter(INPUT_PREFIX, INPUT_VERSES_ONLY));
         lyricReciter2.recite(12);
 
         System.out.println();
         System.out.println("Full verse random reciter");
         // full verse random reciter with verse and subject param
-        JackHouseLyric lyricReciter3 = new JackHouseLyric(new RandomFullVerseDefaultReciter(prefix, versesAndSubjects));
+        JackHouseLyric lyricReciter3 = new JackHouseLyric(new RandomFullVerseDefaultReciter(INPUT_PREFIX, INPUT_VERSES_AND_SUBJECTS));
         lyricReciter3.recite(12);
 
         // full verse random reciter with verse only param
-        JackHouseLyric lyricReciter4 = new JackHouseLyric(new RandomFullVerseDefaultReciter(prefix, versesOnly));
+        JackHouseLyric lyricReciter4 = new JackHouseLyric(new RandomFullVerseDefaultReciter(INPUT_PREFIX, INPUT_VERSES_ONLY));
         lyricReciter4.recite(12);
 
         System.out.println();
         System.out.println("Subject only normal reciter");
         // subject only normal reciter with verse and subject param
-        JackHouseLyric lyricReciter5 = new JackHouseLyric(new NormalSubjectOnlyDefaultReciter(prefix, versesAndSubjects));
+        JackHouseLyric lyricReciter5 = new JackHouseLyric(new NormalSubjectOnlyDefaultReciter(INPUT_PREFIX, INPUT_VERSES_AND_SUBJECTS));
         lyricReciter5.recite(12);
 
         // subject only normal reciter with verse only param
-        JackHouseLyric lyricReciter6 = new JackHouseLyric(new NormalSubjectOnlyDefaultReciter(prefix, versesOnly));
+        JackHouseLyric lyricReciter6 = new JackHouseLyric(new NormalSubjectOnlyDefaultReciter(INPUT_PREFIX, INPUT_VERSES_ONLY));
         lyricReciter6.recite(12);
 
         System.out.println();
         System.out.println("Subject only random reciter");
         // subject only random reciter with verse and subject param
-        JackHouseLyric lyricReciter7 = new JackHouseLyric(new RandomSubjectOnlyDefaultReciter(prefix, versesAndSubjects));
+        JackHouseLyric lyricReciter7 = new JackHouseLyric(new RandomSubjectOnlyDefaultReciter(INPUT_PREFIX, INPUT_VERSES_AND_SUBJECTS));
         lyricReciter7.recite(12);
 
         // subject only random reciter with verse only param
-        JackHouseLyric lyricReciter8 = new JackHouseLyric(new RandomSubjectOnlyDefaultReciter(prefix, versesOnly));
+        JackHouseLyric lyricReciter8 = new JackHouseLyric(new RandomSubjectOnlyDefaultReciter(INPUT_PREFIX, INPUT_VERSES_ONLY));
         lyricReciter8.recite(12);
     }
 

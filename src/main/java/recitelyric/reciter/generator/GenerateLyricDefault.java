@@ -16,12 +16,15 @@ public class GenerateLyricDefault extends GenerateLyricBehaviour {
         if (count > verseSize) throw new Exception("Invalid parameters");
 
         String lyric = prefix;
-        boolean firstVerse = true;
+        String tempLyric = "";
+        boolean firstVerse = false;
         for (int index = (verseSize - 1); index >= (verseSize - count); index--) {
-            lyric += displayBehaviour.getVerse(verses.get(index), firstVerse);
-            if (firstVerse) firstVerse = false;
-        }
+            if (!(index - 1 >= (verseSize - count))) {
+                firstVerse = true;
+            }
+            tempLyric = displayBehaviour.getVerse(verses.get(index), firstVerse) + tempLyric;
 
-        return lyric;
+        }
+        return lyric + tempLyric;
     }
 }
